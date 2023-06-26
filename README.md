@@ -18,7 +18,7 @@
 &nbsp;│ 　│　│　├── controllers  
 &nbsp;│ 　│　│　├── models  
 &nbsp;│ 　│　│　└── ...  
-&nbsp;│ 　│ └── resources  
+&nbsp;│ 　│　└── resources  
 &nbsp;│ 　│　├── static  
 &nbsp;│ 　│　├── templates  
 &nbsp;│ 　│　└── application.properties  
