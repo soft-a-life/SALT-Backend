@@ -41,15 +41,6 @@
 - Spring Data JPA: 데이터베이스와의 상호작용을 위한 JPA 구현체인 Hibernate를 사용하기 위한 의존성입니다.
 - ...
 
-## 의존성
-
-이 프로젝트는 다음과 같은 주요 의존성을 사용합니다:
-
-- Spring Boot Starter: Spring Boot의 핵심 의존성으로, Spring Boot 애플리케이션을 구성하는 데 사용됩니다.
-- Spring Web: Spring MVC를 사용하여 웹 애플리케이션을 개발하는 데 필요한 의존성입니다.
-- Spring Data JPA: 데이터베이스와의 상호작용을 위한 JPA 구현체인 Hibernate를 사용하기 위한 의존성입니다.
-- ...
-
 ## 설치 및 실행
 
 다음은 프로젝트를 설치하고 실행하는 단계입니다:
