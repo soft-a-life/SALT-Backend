@@ -1,4 +1,4 @@
-# My Spring Project
+# SALT / spring-back Proj.
 
 이 프로젝트는 Spring을 기반으로 한 웹 애플리케이션입니다.
 
