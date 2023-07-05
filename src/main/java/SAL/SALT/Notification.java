@@ -1,5 +1,9 @@
 package SAL.SALT;
 
+/**
+ * This class is a temporary class created to generate hard-coded data.
+ */
+
 public class Notification {
 
     private String postNum;

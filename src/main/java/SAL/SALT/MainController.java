@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 public class MainController {
 
-    @GetMapping("access")
+    @GetMapping("api/testdata")
     @CrossOrigin(origins = "http://localhost:3000")
     public List<Notification> fetchData() {
         List<Notification> notifications = new ArrayList<>();
