@@ -20,7 +20,8 @@ public class User {
     @Column(nullable = false)
     private Date registeredDay;
 
-    public User(String name, String nickname, String email, String password, Date registeredDay) {
+    public User(Long userId, String name, String nickname, String email, String password, Date registeredDay) {
+        this.userId = userId;
         this.name = name;
         this.nickname = nickname;
         this.email = email;
@@ -32,8 +33,8 @@ public class User {
 
     }
 
-    public String getUsername() {
-        return nickname;
+    public Long getUserId() {
+        return userId;
     }
 
     public String getPassword() {
