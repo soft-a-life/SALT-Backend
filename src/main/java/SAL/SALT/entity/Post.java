@@ -2,7 +2,11 @@ package SAL.SALT.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "Post")
 public class Post {

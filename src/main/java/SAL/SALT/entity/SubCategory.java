@@ -1,7 +1,11 @@
 package SAL.SALT.entity;
 
 import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "Sub_Category")
 public class SubCategory {
@@ -16,8 +20,6 @@ public class SubCategory {
 
     @Column(name = "sub_category_explanation")
     private String subCategoryExplanation;
-
-    // 생성자, getter, setter 등 필요한 메서드 추가
 
     // 기타 로직 및 관계 설정 추가
 }

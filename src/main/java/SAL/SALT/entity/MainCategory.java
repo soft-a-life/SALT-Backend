@@ -1,7 +1,11 @@
 package SAL.SALT.entity;
 
 import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "Main_Category")
 public class MainCategory {
