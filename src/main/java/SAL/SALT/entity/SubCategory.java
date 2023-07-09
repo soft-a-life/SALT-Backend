@@ -4,6 +4,10 @@ import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Sub Category entity
+ */
+
 @Getter
 @Setter
 @Entity
