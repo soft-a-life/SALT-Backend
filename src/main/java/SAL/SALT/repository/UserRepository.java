@@ -1,6 +1,6 @@
-package SAL.SALT.Repository;
+package SAL.SALT.repository;
 
-import SAL.SALT.Entity.User;
+import SAL.SALT.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
