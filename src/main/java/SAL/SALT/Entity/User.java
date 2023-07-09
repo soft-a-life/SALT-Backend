@@ -1,4 +1,4 @@
-package SAL.SALT.entity;
+package SAL.SALT.Entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -9,10 +9,7 @@ import lombok.Setter;
  * User entity
  */
 
-@Getter
-@Setter
-@Entity
-@Table(name = "USER")
+@Getter  @Setter  @Entity  @Table(name = "USER")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,11 +28,24 @@ public class User {
     @Column(name = "user_registered_day")
     private LocalDateTime userRegisteredDay;
 
+    public User() {
+        // 기본 생성자
+    }
+
+    public User(String userName, String userEmail, String userPassword) {
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+        this.userRegisteredDay = LocalDateTime.now();
+    }
+
     public Long getUserId() {
         return userId;
     }
 
-    public String getPassword() { return userPassword; }
+    public String getPassword() {
+        return userPassword;
+    }
 
     // 기타 로직 및 관계 설정 추가
 }

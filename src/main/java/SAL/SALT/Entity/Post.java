@@ -1,4 +1,4 @@
-package SAL.SALT.entity;
+package SAL.SALT.Entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -9,18 +9,12 @@ import lombok.Setter;
  * Post entity
  */
 
-@Getter
-@Setter
-@Entity
-@Table(name = "Post")
+@Getter  @Setter  @Entity  @Table(name = "Post")
 public class Post {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "post_id")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "post_id")
     private int postId;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @ManyToOne @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
