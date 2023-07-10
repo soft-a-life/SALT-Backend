@@ -10,8 +10,7 @@ import lombok.Setter;
 
 @Getter  @Setter  @Entity  @Table(name = "Main_Category")
 public class MainCategory {
-    @Id
-    @Column(name = "main_category_name")
+    @Id  @Column(name = "main_category_name")
     private String mainCategoryName;
 
     @Column(name = "main_category_explanation")
