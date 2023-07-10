@@ -1,6 +1,6 @@
 package SAL.SALT.controller;
 
-import SAL.SALT.entity.User;
+import SAL.SALT.Entity.User;
 import SAL.SALT.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
