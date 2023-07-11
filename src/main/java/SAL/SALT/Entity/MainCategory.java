@@ -8,21 +8,20 @@ import lombok.Setter;
  * Main Category entity
  */
 
-@Getter  @Setter  @Entity  @Table(name = "Main_Category")
+@Getter
+@Setter
+@Entity
+@Table(name = "main_category")
 public class MainCategory {
-    @Id  @Column(name = "main_category_name")
-    private String mainCategoryName;
-
-    @Column(name = "main_category_explanation")
-    private String mainCategoryExplanation;
+    @Id
+    @Column(name = "main_category_name", length = 16, nullable = false)
+    private Long mainCategoryName;
 
     public MainCategory() {
-        // default constructor
     }
 
-    public MainCategory(String mainCategoryName, String mainCategoryExplanation) {
+    public MainCategory(Long mainCategoryName) {
         this.mainCategoryName = mainCategoryName;
-        this.mainCategoryExplanation = mainCategoryExplanation;
     }
 }
 

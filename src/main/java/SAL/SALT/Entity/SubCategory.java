@@ -2,30 +2,30 @@ package SAL.SALT.Entity;
 
 import javax.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  * Sub Category entity
  */
 
-@Getter  @Setter  @Entity  @Table(name = "Sub_Category")
+@Getter
+@Entity
+@Table(name = "sub_category")
 public class SubCategory {
-    @Id @Column(name = "sub_category_name")
+    @Id
+    @Column(name = "sub_category_name", length = 16, nullable = false)
     private String subCategoryName;
 
-    @Id @ManyToOne @JoinColumn(name = "main_category_name")
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "main_category_name", nullable = false)
     private MainCategory mainCategory;
-
-    @Column(name = "sub_category_explanation")
-    private String subCategoryExplanation;
 
     public SubCategory() {
         // default constructor
     }
 
-    public SubCategory(String subCategoryName, MainCategory mainCategory, String subCategoryExplanation) {
+    public SubCategory(String subCategoryName, MainCategory mainCategory) {
         this.subCategoryName = subCategoryName;
         this.mainCategory = mainCategory;
-        this.subCategoryExplanation = subCategoryExplanation;
     }
 }
