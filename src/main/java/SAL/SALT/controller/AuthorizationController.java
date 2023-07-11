@@ -23,10 +23,10 @@ public class AuthorizationController {
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody User user) {
         // Query users in DB using data received from login page
-        User existingUser = userRepository.findByUserId(user.getUserId());
+        User existingUser = userRepository.getByUserId(user.getUserId());
 
         // Verify user exists & password matches
-        if (existingUser != null && existingUser.getPassword().equals(user.getPassword())) {
+        if (existingUser != null && existingUser.getUserPassword().equals(user.getUserPassword())) {
             return ResponseEntity.ok("Login succeed");
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User info is incorrect");
