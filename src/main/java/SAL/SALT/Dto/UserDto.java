@@ -1,6 +1,7 @@
 package SAL.SALT.Dto;
 
 import SAL.SALT.Entity.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 @Data
@@ -9,6 +10,7 @@ import lombok.*;
 @Builder
 public class UserDto {
     private String userId;
+    @JsonIgnore
     private String userPw;
     private String userNickname;
     private String email;
