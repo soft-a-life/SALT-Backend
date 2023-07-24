@@ -1,22 +1,28 @@
 package SAL.SALT.Controller;
 
 import SAL.SALT.Dto.UserDto;
-import SAL.SALT.Service.UserService;
+import SAL.SALT.Entity.User;
+import SAL.SALT.Service.SignUpService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @RequestMapping("/access")
 public class UserApiController {
 
-    private final UserService userService;
+    private final SignUpService signUpService;
+
+    @Autowired
+    public UserApiController(SignUpService signUpService) {
+        this.signUpService = signUpService;
+    }
 
     @PostMapping("/signup")
-    public void signUpForm() {
-
+    public User signUpForm(@RequestBody UserDto userDto) {
+        return signUpService.signUp(userDto);
     }
 
     @PostMapping("/login")
