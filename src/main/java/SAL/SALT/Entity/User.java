@@ -6,9 +6,10 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 @Entity
 @Builder(builderMethodName = "builder")
 @Table(name = "User")
@@ -16,7 +17,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_num")
-    private Integer userNum;
+    private Long userNum;
 
     @Column(length = 16, name = "user_id", unique = true, nullable = false)
     private String userId;
