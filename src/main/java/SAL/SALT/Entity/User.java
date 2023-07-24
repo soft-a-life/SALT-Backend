@@ -21,7 +21,7 @@ public class User {
     @Column(length = 16, name = "user_id", unique = true, nullable = false)
     private String userId;
 
-    @Column(length = 256, name = "user_pw", unique = true, nullable = false)
+    @Column(length = 256, name = "user_pw", nullable = false)
     private String userPw;
 
     @Column(length = 32, name = "user_name")
