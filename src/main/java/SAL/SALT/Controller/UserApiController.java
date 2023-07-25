@@ -3,8 +3,11 @@ package SAL.SALT.Controller;
 import SAL.SALT.Dto.UserDto;
 import SAL.SALT.Entity.User;
 import SAL.SALT.Service.SignUpService;
+import SAL.SALT.domain.RegisterMember;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
@@ -21,8 +24,8 @@ public class UserApiController {
     }
 
     @PostMapping("/signup")
-    public User signUpForm(@RequestBody UserDto userDto) {
-        return signUpService.signUp(userDto);
+    public String signUpForm(@RequestBody @Validated RegisterMember registerMember, BindingResult bindingResult) {
+        return signUpService.signUp(registerMember, bindingResult);
     }
 
     @PostMapping("/login")

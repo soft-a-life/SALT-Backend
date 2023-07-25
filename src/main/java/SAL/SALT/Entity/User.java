@@ -1,5 +1,6 @@
 package SAL.SALT.Entity;
 
+import SAL.SALT.domain.RegisterMember;
 import lombok.*;
 
 import javax.persistence.*;
@@ -51,5 +52,18 @@ public class User {
 
     @Column(name = "is_admin")
     private String isAdmin;
+
+    public static User from(RegisterMember registerMember) {
+        return User.builder()
+                .userId(registerMember.getUserId())
+                .userPw(registerMember.getUserPw())
+                .userName(registerMember.getUserName())
+                .email(registerMember.getEmail())
+                .userPhone(registerMember.getUserPhone())
+                .userNickname(registerMember.getUserNickname())
+                .userBirth(registerMember.getUserBirth())
+                // 필요하다면 여기에 다른 필드들도 추가
+                .build();
+    }
 
 }
