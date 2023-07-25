@@ -1,5 +1,6 @@
 package SAL.SALT.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.validation.constraints.Email;
@@ -13,10 +14,10 @@ public class RegisterMember {
     @NotBlank
     private final String userId;
     @NotBlank
+    @JsonIgnore
     private final String userPw;
     @NotBlank
     private final String userName;
-    @NotBlank
     @Email
     private final String email;
     @NotBlank
