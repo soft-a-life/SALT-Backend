@@ -4,33 +4,11 @@
 
 ## 개요
 
-이 프로젝트는 사용자 등록, 로그인, 게시물 작성 등의 기능을 제공하는 웹 애플리케이션입니다. Spring Boot와 Spring MVC를 사용하여 개발되었습니다.
-
-## 프로젝트 구조
-
-프로젝트는 다음과 같은 구조로 이루어져 있습니다:
-
-프로젝트_구조  
-├── src  
-&nbsp;│　├── main  
-&nbsp;│　 │ &nbsp;├── java  
-&nbsp;│ 　│ &nbsp;&nbsp;│ └── com.example.myproject  
-&nbsp;│ 　│　│　├── controllers  
-&nbsp;│ 　│　│　├── models  
-&nbsp;│ 　│　│　└── ...  
-&nbsp;│ 　│　└── resources  
-&nbsp;│ 　│　├── static  
-&nbsp;│ 　│　├── templates  
-&nbsp;│ 　│　└── application.properties  
-&nbsp;│　└── test  
-&nbsp;│　└── ...  
-├── pom.xml  
-└── ...  
-
+이 프로젝트는 사용자 등록, 로그인, 게시물 작성 등의 기능을 제공하는 백엔드 서버입니다. Spring Boot를 사용하여 개발되었습니다.
 
 - `src/main/java`: Java 소스 코드를 포함하는 디렉토리입니다. 컨트롤러, 모델, 서비스 등의 클래스가 여기에 위치합니다.
 - `src/main/resources`: 프로퍼티 파일, 정적 리소스, 템플릿 파일 등을 포함하는 디렉토리입니다.
-- `pom.xml`: Maven 프로젝트 설정 파일입니다.
+- `build.gradle`: Gradle 프로젝트 설정 파일입니다.
 
 ## 의존성
 
@@ -61,6 +39,43 @@
 4. 포크한 저장소로 푸시합니다: `git push origin feature/my-new-feature`
 5. Pull Request를 생성합니다.
 
-## 라이선스
+## CommitMesseageRoule
+``` form
+<type>(<scope>) : <subject>          -- 헤더
+<BLANK LINE>
+<body>                              -- 본문
+<BLANK LINE>
+<footer>                            -- 바닥글
+```
+## type
 
-이 프로젝트는 MIT 라이선스에 따라 배포됩니다. 자세한 내용은 [LICENSE.md](./LICENSE.md) 파일을 참조하세요.
+```bash
+feat : 새로운 기능에 대한 커밋
+fix : 버그 수정에 대한 커밋
+build : 빌드 관련 파일 수정에 대한 커밋
+chore : 그 외 자잘한 수정에 대한 커밋
+ci : CI관련 설정 수정에 대한 커밋
+docs : 문서 수정에 대한 커밋
+style : 코드 스타일 혹은 포맷 등에 관한 커밋
+refactor :  코드 리팩토링에 대한 커밋
+test : 테스트 코드 수정에 대한 커밋
+```
+
+→ type은 해당 커밋의 성격을 나타내어야 하고 위 중 하나여야 한다.
+
+## **<body>**
+
+→ 본문으로 헤더로 표현할 수 없는 상세한 내용을 적는다.
+     헤더로 표현이 가능하다면 생략 가능하다.
+
+## **<footer>**
+
+→ 바닥글로 어떤 이슈에서 왔는지 같은 참조 정보들을 추가하는 용도로 사용한다
+
+예를 들어 특정 이슈를 참조하려면
+
+```
+close #1233
+```
+
+과 같이 추가하면 된다. close는 이슈를 참조하면서 main브랜치로 푸시될 때 이슈를 닫게 된다.
