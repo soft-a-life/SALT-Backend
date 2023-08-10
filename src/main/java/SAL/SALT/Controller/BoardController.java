@@ -1,10 +1,13 @@
 package SAL.SALT.Controller;
 
 import SAL.SALT.Dto.BoardDto;
+import SAL.SALT.Entity.Board;
 import SAL.SALT.Service.BoardService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -26,4 +29,11 @@ public class BoardController {
             throw new RuntimeException(e);
         }
     }
+
+    @PostMapping("/search")
+    public Optional<Board> search(@RequestParam String searchKeyword) {
+        boardService.search(searchKeyword);
+        return null;
+    }
+
 }
