@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/board")
 public class BoardController {
@@ -19,7 +18,7 @@ public class BoardController {
         this.boardService = boardService;
     }
 
-    @PostMapping("/save")
+    @PostMapping("/POST/boards")
     public void save(@RequestBody String jsonData) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -30,7 +29,7 @@ public class BoardController {
         }
     }
 
-    @PostMapping("/search")
+    @PostMapping("/GET/boards/{id}")
     public Optional<Board> search(@RequestParam String searchKeyword) {
         boardService.search(searchKeyword);
         return null;
