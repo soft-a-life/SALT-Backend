@@ -5,6 +5,7 @@ import SAL.SALT.Entity.Board;
 import SAL.SALT.Service.BoardService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -19,7 +20,7 @@ public class BoardController {
     }
 
     @PostMapping("/POST/boards")
-    public void save(@RequestBody String jsonData) {
+    public void save(@RequestBody @Validated String jsonData) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             BoardDto boardDto = objectMapper.readValue(jsonData, BoardDto.class);
