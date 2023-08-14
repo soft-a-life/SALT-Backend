@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/board")
 public class BoardController {
     private final BoardService boardService;
 
@@ -19,7 +18,7 @@ public class BoardController {
         this.boardService = boardService;
     }
 
-    @PostMapping("/POST/boards")
+    @PostMapping("/boards")
     public void save(@RequestBody @Validated String jsonData) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -30,10 +29,10 @@ public class BoardController {
         }
     }
 
-    @PostMapping("/GET/boards/{id}")
-    public Optional<Board> search(@RequestParam String searchKeyword) {
-        boardService.search(searchKeyword);
-        return null;
+    @GetMapping("/boards/{id}")
+    public String searchList(@RequestParam String searchKeyword) {
+        boardService.searchList(searchKeyword);
+        return "/board";
     }
 
 }
