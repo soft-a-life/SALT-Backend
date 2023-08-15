@@ -1,19 +1,22 @@
 package SAL.SALT.Entity;
 
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Board {
 
     @Id
     @GeneratedValue
     @Column(name = "board_num")
-    private int boardNum;
+    private Long boardNum;
 
     private String title;
 
@@ -34,7 +37,4 @@ public class Board {
     @JoinColumn(name = "user_num")
     @Column(name = "user_num")
     private User userNum;
-
-    protected Board() {
-    }
 }

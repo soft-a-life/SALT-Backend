@@ -3,10 +3,15 @@ package SAL.SALT.Entity;
 import SAL.SALT.domain.RegisterMember;
 import lombok.Builder;
 import lombok.Getter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.sql.Date;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 @Entity
@@ -38,11 +43,13 @@ public class User {
     @Column(name = "user_phone", unique = true)
     private String userPhone;
 
-    @Column(name = "register_date")
-    private Date registerDate;
+    @CreatedDate
+    @Column(name = "register_date", updatable = false)
+    private LocalDateTime registerDate;
 
+    @LastModifiedDate
     @Column(name = "update_date")
-    private Timestamp updateDate;
+    private LocalDateTime updateDate;
 
     @Column(name = "is_withdrawal")
     private String isWithdrawal;
