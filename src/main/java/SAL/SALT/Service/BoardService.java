@@ -30,7 +30,7 @@ public class BoardService {
     }
 
     @Transactional
-    public Optional<Board> search(String searchKeyword) {
+    public List<Board> searchList(String searchKeyword) {
         if (searchKeyword == null || searchKeyword.trim().isEmpty()) {
             throw new IllegalArgumentException("Search keyword cannot be empty.");
         }

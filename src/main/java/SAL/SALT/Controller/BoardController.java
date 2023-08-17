@@ -32,10 +32,10 @@ public class BoardController {
         boardService.save(boardDto);
     }
 
-    @GetMapping("/boards/{id}")
-    public String searchList(@RequestParam String searchKeyword) {
-        boardService.searchList(searchKeyword);
-        return "/board";
+    @GetMapping("/boards")
+    public ResponseEntity<List<Board>> searchList(@RequestParam String searchKeyword) {
+        List<Board> boards = boardService.searchList(searchKeyword);
+        return ResponseEntity.ok(boards);
     }
 
 }
