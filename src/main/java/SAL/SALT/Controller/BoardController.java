@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
@@ -27,6 +28,8 @@ public class BoardController {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+    public void save(@RequestBody @Valid BoardDto boardDto) {
+        boardService.save(boardDto);
     }
 
     @GetMapping("/boards/{id}")
