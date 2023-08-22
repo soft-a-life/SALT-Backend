@@ -6,18 +6,21 @@ import SAL.SALT.Repository.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
+import org.springframework.stereotype.Component;
+
 import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Getter
 @Entity
 @Builder(builderMethodName = "builder")
+@AllArgsConstructor
+@Component
 public class User {
 
     @Embedded
