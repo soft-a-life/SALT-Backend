@@ -21,10 +21,16 @@ dependencies {
 	implementation 'org.hibernate.validator:hibernate-validator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'mysql:mysql-connector-java:8.0.32'
+
 	// lombok plugin
 	implementation('org.projectlombok:lombok')
 	implementation 'org.jetbrains:annotations:23.0.0'
 	annotationProcessor('org.projectlombok:lombok')
+
+	// add jwt
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+	implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
 
 	// test 환경
 	testImplementation('org.projectlombok:lombok')
