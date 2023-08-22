@@ -1,6 +1,9 @@
 package SAL.SALT.Entity;
 
 import SAL.SALT.domain.RegisterMember;
+import SAL.SALT.Repository.UserRepository;
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
@@ -9,7 +12,6 @@ import org.springframework.data.annotation.LastModifiedDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.sql.Date;
 import java.time.LocalDateTime;
 
@@ -17,6 +19,10 @@ import java.time.LocalDateTime;
 @Entity
 @Builder(builderMethodName = "builder")
 public class User {
+
+    @Embedded
+    private final UserRepository userRepository;
+
     @Id
     @GeneratedValue
     @Column(name = "user_num")
@@ -57,7 +63,16 @@ public class User {
     @Column(name = "is_admin")
     private ManagerAuthority isAdmin;
 
-    protected User() {
+    @Column(name = "uuid")
+    private Character uuid;
+
+    @Autowired
+    public User(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public User () {
+        userRepository = null;
     }
 
     public static User from(RegisterMember registerMember) {
@@ -69,7 +84,8 @@ public class User {
                 .userPhone(registerMember.getUserPhone())
                 .userNickname(registerMember.getUserNickname())
                 .userBirth(registerMember.getUserBirth())
-                // 필요하다면 여기에 다른 필드들도 추가
+                .uuid(registerMember.getUuid())
+                // Add other necessary fields if needed
                 .build();
     }
 
