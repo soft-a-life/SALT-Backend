@@ -26,4 +26,6 @@ public class RegisterMember {
     private final String userNickname;
 
     private final Date userBirth;
+
+    private final Character uuid;
 }
