@@ -21,12 +21,15 @@ public class SignUpService {
 
     private final BCryptPasswordEncoder encoder;
 
+    public boolean isUserAlreadyRegistered(String userId) {
+        return userRepository.existsByUserId(userId);
+    }
 
     /* SignUp method done with RegisterMember Domain */
     @Transactional
     public String signUp(@RequestBody @Validated RegisterMember registerMember, BindingResult bindingResult) {
-        if (userRepository.findByUserId(registerMember.getUserId()).isPresent()) {
-            throw new RuntimeException("user already exist.");
+        if (isUserAlreadyRegistered(registerMember.getUserId())) {
+            throw new RuntimeException("User already exists.");
         }
 
         User user = User.builder()
