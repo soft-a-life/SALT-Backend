@@ -1,57 +1,64 @@
 package SAL.SALT.Entity;
 
 import SAL.SALT.domain.RegisterMember;
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.sql.Date;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
-@Setter
 @Entity
 @Builder(builderMethodName = "builder")
-@Table(name = "User")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "user_num")
     private Long userNum;
 
-    @Column(length = 16, name = "user_id", unique = true, nullable = false)
+    @Column(name = "user_id", unique = true, nullable = false)
     private String userId;
 
-    @Column(length = 256, name = "user_pw", nullable = false)
+    @Column(name = "user_pw", nullable = false)
     private String userPw;
 
-    @Column(length = 32, name = "user_name")
+    @Column(name = "user_name")
     private String userName;
 
-    @Column(length = 16, name = "user_nickname", unique = true)
+    @Column(name = "user_nickname", unique = true)
     private String userNickname;
 
     @Column(name = "user_birth")
     private Date userBirth;
 
-    @Column(length = 256, name = "email", unique = true)
+    @Column(name = "email", unique = true)
     private String email;
 
-    @Column(length = 256, name = "user_phone", unique = true)
+    @Column(name = "user_phone", unique = true)
     private String userPhone;
 
-    @Column(name = "register_date")
-    private Date registerDate;
+    @CreatedDate
+    @Column(name = "register_date", updatable = false)
+    private LocalDateTime registerDate;
 
+    @LastModifiedDate
     @Column(name = "update_date")
-    private Timestamp updateDate;
+    private LocalDateTime updateDate;
 
     @Column(name = "is_withdrawal")
     private String isWithdrawal;
 
     @Column(name = "is_admin")
-    private String isAdmin;
+    private ManagerAuthority isAdmin;
+
+    protected User() {
+    }
 
     public static User from(RegisterMember registerMember) {
         return User.builder()
