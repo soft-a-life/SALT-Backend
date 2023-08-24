@@ -24,4 +24,9 @@ public class Category {
 
     @Column(name = "category_sub")
     private String categorySub;
+
+    public Category(String categoryMain, String categorySub) {
+        this.categoryMain = categoryMain;
+        this.categorySub = categorySub;
+    }
 }

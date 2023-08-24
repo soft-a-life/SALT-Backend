@@ -26,7 +26,11 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User> findUser(Long userId) {
-        return userRepository.findById(userId);
+    public Optional<User> findUser(Long userNum) {
+        return userRepository.findById(userNum);
+    }
+
+    public Optional<User> findUserId(String userName) {
+        return userRepository.findByUserId(userName);
     }
 }

@@ -37,4 +37,11 @@ public class Board {
     @JoinColumn(name = "user_num")
     @Column(name = "user_num")
     private User userNum;
+
+    public Board(String title, String content, Date boardGenerate, Category categoryNum) {
+        this.title = title;
+        this.content = content;
+        this.boardGenerate = boardGenerate;
+        this.categoryNum = categoryNum;
+    }
 }

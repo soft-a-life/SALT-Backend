@@ -1,8 +1,8 @@
 package SAL.SALT.domain;
 
 public class MemberData {
-    private final String userId;
-    private final String userNickname;
+    private String userId;
+    private String userNickname;
 
     public MemberData(String userId, String userNickname) {
         this.userId = userId;
