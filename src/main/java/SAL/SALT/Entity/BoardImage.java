@@ -23,4 +23,9 @@ public class BoardImage {
     private Board boardNum;
 
     private String boardImagePath;
+
+    public BoardImage(Board boardNum, String boardImagePath) {
+        this.boardNum = boardNum;
+        this.boardImagePath = boardImagePath;
+    }
 }

@@ -12,18 +12,17 @@ import java.sql.Date;
 public class RegisterMember {
 
     @NotBlank
-    private final String userId;
+    private String userId;
     @NotBlank
-    @JsonIgnore
-    private final String userPw;
+    private String userPw;
     @NotBlank
-    private final String userName;
+    private String userName;
     @Email
-    private final String email;
+    private String email;
     @NotBlank
-    private final String userPhone;
+    private String userPhone;
 
-    private final String userNickname;
+    private String userNickname;
 
-    private final Date userBirth;
+    private Date userBirth;
 }

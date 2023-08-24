@@ -9,8 +9,8 @@ import javax.validation.constraints.NotBlank;
 public class LoginMember {
 
     @NotBlank
-    private final String userId;
+    private String userId;
     @NotBlank
-    private final String userPw;
+    private String userPw;
 
 }
