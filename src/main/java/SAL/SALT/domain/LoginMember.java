@@ -1,11 +1,13 @@
 package SAL.SALT.domain;
 
 import lombok.Data;
+import lombok.Getter;
 
 import javax.validation.constraints.NotBlank;
 
 
 @Data
+@Getter
 public class LoginMember {
 
     @NotBlank
