@@ -1,16 +1,14 @@
 package SAL.SALT.Controller;
 
-import SAL.SALT.Dto.UserDto;
-import SAL.SALT.Entity.User;
+import SAL.SALT.Service.LoginService;
 import SAL.SALT.Service.SignUpService;
+import SAL.SALT.domain.LoginMember;
 import SAL.SALT.domain.RegisterMember;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "*")
 @RestController
 //@RequiredArgsConstructor
 @RequestMapping("/access")
@@ -18,9 +16,12 @@ public class UserApiController {
 
     private final SignUpService signUpService;
 
+    private final LoginService loginService;
+
     @Autowired
-    public UserApiController(SignUpService signUpService) {
+    public UserApiController(SignUpService signUpService, LoginService loginService) {
         this.signUpService = signUpService;
+        this.loginService = loginService;
     }
 
     @PostMapping("/signup")
@@ -29,7 +30,7 @@ public class UserApiController {
     }
 
     @PostMapping("/login")
-    public void loginForm() {
-
+    public String loginForm(@RequestBody @Validated LoginMember loginMember, BindingResult bindingResult) {
+        return loginService.login(loginMember, bindingResult); // LoginService의 login 메서드 호출
     }
 }
