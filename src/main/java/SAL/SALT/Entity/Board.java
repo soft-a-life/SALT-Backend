@@ -29,12 +29,10 @@ public class Board {
     @GeneratedValue
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_num")
-    @Column(name = "category_num")
     private Category categoryNum;
 
     @GeneratedValue
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_num")
-    @Column(name = "user_num")
     private User userNum;
 }

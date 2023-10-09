@@ -18,7 +18,6 @@ public class Follow {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_num")
-    @Column(name = "to_user")
     private User user;
 
     @Column(name = "from_follow")

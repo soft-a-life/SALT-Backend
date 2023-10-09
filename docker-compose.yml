@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  # 스프링 애플리케이션 서비스
+  spring-app:
+    build: . # 연결할 외부 디렉터리 : 컨테이너 내 디렉토리
+    ports:
+      - "8080:8080" # 호스트 포트와 컨테이너 포트 매핑
+    depends_on:
+      - mysql-db # MySQL 서버가 먼저 시작되도록 의존성 설정
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/SALT_Community
+      SPRING_DATASOURCE_USERNAME: SALT_chaeho
+      SPRING_DATASOURCE_PASSWORD: Qhdks12##
+
+  # MySQL 서버 서비스
+  mysql-db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: Qhdks12##
+      MYSQL_DATABASE: SALT_Community
+      MYSQL_USER: SALT_chaeho
+      MYSQL_PASSWORD: Qhdks12##
+    volumes:
+      - mysql_data:/var/lib/mysql # MySQL 데이터 볼륨
+
+volumes:
+  mysql_data:
